@@ -12,30 +12,31 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ProfileComponent implements OnInit {
   student: Etudiant | undefined;
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private etudiantService:EtudiantService) { }
 
   ngOnInit(): void {
-    this.authService.getAuthUserDetails().subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (error) => {
-        console.error('Error fetching student data:', error);
-      }
-    );
-    // const studentId = localStorage.getItem('studentId'); // Assuming you store the student ID in localStorage upon login
-    // if (studentId) {
-    //   this.etudiantService.getEtudiant(Number(studentId)).subscribe(
-    //     (student) => {
-    //       this.student = student;
-    //     },
-    //     (error) => {
-    //       console.error('Error fetching student data:', error);
-    //     }
-    //   );
-    // } else {
-    //   console.error('Student ID not found in localStorage');
-    // }
+    // this.authService.getAuthUserDetails().subscribe(
+    //   (res) => {
+    //     console.log(res);
+    //   },
+    //   (error) => {
+    //     console.error('Error fetching student data:', error);
+    //   }
+    // );
+    const studentId = 1; // Assuming you store the student ID in localStorage upon login
+    if (studentId) {
+      this.etudiantService.getEtudiant(studentId).subscribe(
+        (student) => {
+          console.log('Student data:', student);
+          this.student = student;
+        },
+        (error) => {
+          console.error('Error fetching student data:', error);
+        }
+      );
+    } else {
+      console.error('Student ID not found in localStorage');
+    }
   }
   getDecodedAccessToken(token: string): any {
     try {

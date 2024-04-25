@@ -19,8 +19,8 @@
                        <div *ngIf="student">   
                           <!-- <h5 class="my-3">{{ student.name }}</h5> -->
                        </div>
-                  <p class="text-muted mb-1 badge badge-warning">Big Data and Cloud Computing</p>
-                  <p class="text-muted mb-4"><i class="bi bi-geo-alt-fill" style="color:rgb(20, 199, 74)"></i>Seoul, South Korea</p>
+                  <p class="text-muted mb-1 badge badge-warning">{{student?.filiere ? student?.filiere : "NON SASIE"}}</p>
+                  <p class="text-muted mb-4"><i class="bi bi-geo-alt-fill" style="color:rgb(20, 199, 74)"></i>{{student?.adresse ? student?.adresse : "NON SASIE"}}</p>
                   <div class="d-flex justify-content-center mb-2">
                     <!-- Edit -->
                     <button (click)="Edit()" class="btn btn-primary align-content-center">
@@ -36,7 +36,7 @@
                       <p class="mb-0">Name</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Jimin</p>
+                      <p class="text-muted mb-0">{{student?.nom ? student?.nom : ""}}</p>
                     </div>
                   </div>
                   <hr>
@@ -45,25 +45,7 @@
                       <p class="mb-0">Surname</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">PARK</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Age</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">28</p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Gender</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">Male</p>
+                      <p class="text-muted mb-0">{{student?.prenom ? student?.prenom : "NON SAISIE"}}</p>
                     </div>
                   </div>
                   <hr>
@@ -78,7 +60,7 @@
                       <p class="mb-0">Proffesion</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Big Data and Cloud Computing</p>
+                      <p class="text-muted mb-0">{{student?.filiere ? student?.filiere : "NON SASIE"}}</p>
                     </div>
                   </div>
                   <hr>
@@ -87,7 +69,7 @@
                       <p class="mb-0">Email</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">pj-gmail.com</p>
+                      <p class="text-muted mb-0">{{student?.email ? student?.email : "NON SASIE"}}</p>
                     </div>
                   </div>
                   <hr>
@@ -96,7 +78,7 @@
                       <p class="mb-0">Phone</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">0679639829</p>
+                      <p class="text-muted mb-0">{{student?.telephone ? student?.telephone : "NON SASIE"}}</p>
                     </div>
                   </div>
                   <hr>
@@ -105,7 +87,7 @@
                       <p class="mb-0">Address</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Seoul, South Korea</p>
+                      <p class="text-muted mb-0">{{student?.adresse ? student?.adresse : "NON SASIE"}}</p>
                     </div>
                   </div>
                 </div>

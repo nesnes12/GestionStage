@@ -45,7 +45,7 @@ public class GestionStageApplication {
                                         PostesService postesService) {
         return (args) -> {
             final int[] i = {1};
-            Stream.of("jimin", "jungkook", "namjoon").forEach(login -> {
+            Stream.of("Mohamed", "Ali", "Nesrine").forEach(login -> {
                 AdminDTO adminDTO = new AdminDTO();
                 adminDTO.setId(i[0]);
                 adminDTO.setLogin(login);
@@ -71,35 +71,35 @@ public class GestionStageApplication {
             accountService.addNewRole(new AppRole(null, "ENCADRANT"));
             accountService.addNewRole(new AppRole(null, "ETUDIANT"));
             accountService.addNewUser(new AppUser(null, "admin", "admin", new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null, "Jimin", "1310", new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null, "Jungkook", "7777", new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null, "Namjoon", "7777", new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null, "Jin", "7777", new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null, "Yoongi", "7777", new ArrayList<>()));
-            accountService.addNewUser(new AppUser(null, "Hoseok", "7777", new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null, "Mohamed", "1310", new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null, "Ali", "7777", new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null, "Nesrine", "7777", new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null, "Omayma", "7777", new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null, "Seif", "7777", new ArrayList<>()));
+            accountService.addNewUser(new AppUser(null, "Mahmoud", "7777", new ArrayList<>()));
             accountService.addNewUser(new AppUser(null, "Taehyung", "7777", new ArrayList<>()));
             accountService.addRoleToUser("admin", "ADMIN");
-            accountService.addRoleToUser("Jimin", "CHEF_FIL");
-            accountService.addRoleToUser("Jungkook", "CHEF_FIL");
-            accountService.addRoleToUser("Namjoon", "ETUDIANT");
-            accountService.addRoleToUser("Jin", "ENCADRANT");
-            accountService.addRoleToUser("Yoongi", "ENCADRANT");
-            accountService.addRoleToUser("Hoseok", "CHEF_FIL");
+            accountService.addRoleToUser("Mohamed", "CHEF_FIL");
+            accountService.addRoleToUser("Ali", "CHEF_FIL");
+            accountService.addRoleToUser("Nesrine", "ETUDIANT");
+            accountService.addRoleToUser("Omayma", "ENCADRANT");
+            accountService.addRoleToUser("Seif", "ENCADRANT");
+            accountService.addRoleToUser("Mahmoud", "CHEF_FIL");
             accountService.addRoleToUser("Taehyung", "ETUDIANT");
-            Stream.of("Jimin", "Jungkook", "Hoseok").forEach(name -> {
+            Stream.of("Mohamed", "Ali", "Mahmoud").forEach(name -> {
                 EnseignantDTO enseignantDTO = new EnseignantDTO();
                 enseignantDTO.setNom(name);
                 enseignantDTO.setEmail(name + "@gmail.com");
                 enseignantDTO.setResponsableFiliere(true);
                 enseignantService.saveEnseignant(enseignantDTO);
             });
-            Stream.of("Jin", "Yoongi").forEach(name -> {
+            Stream.of("Omayma", "Seif").forEach(name -> {
                 EncadrantPedagogiqueDTO encadrantPedagogiqueDTO = new EncadrantPedagogiqueDTO();
                 encadrantPedagogiqueDTO.setNom(name);
                 encadrantPedagogiqueDTO.setEmail(name + "@gmail.com");
                 encadrantPedagogiqueService.saveEncadrantPedagogique(encadrantPedagogiqueDTO);
             });
-            Stream.of("Namjoon", "Taehyung").forEach(name -> {
+            Stream.of("Nesrine", "Taehyung").forEach(name -> {
                 EtudiantDTO etudiantDTO = new EtudiantDTO();
                 etudiantDTO.setNom(name);
                 etudiantDTO.setEmail(name + "@gmail.com");

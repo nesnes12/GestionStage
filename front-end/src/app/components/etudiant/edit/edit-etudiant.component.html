@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container w-100">
   <div class="card col-md-8 offset-2 mt-2">
     <div class="card-header">
       <div class="display-6">Modifier mes informations personnels</div>
@@ -42,14 +42,14 @@
             <label class="form-label">Filiere</label>
             <input type="text" formControlName="filiere" class="form-control">
           </div>
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label class="form-label">CNI</label>
             <input type="text" formControlName="cin" class="form-control">
           </div>
           <div class="mb-3">
             <label class="form-label">CNE</label>
             <input type="text" formControlName="cne" class="form-control">
-          </div>
+          </div> -->
 
           <button [disabled]="editEtudiantFormGroup.invalid" class="btn btn-info">Update</button>
         </form>
