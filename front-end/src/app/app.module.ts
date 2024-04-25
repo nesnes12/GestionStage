@@ -4,15 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EtudiantComponent } from './components/etudiant/etudiant.component';
 import { AcceuilComponent } from './components/acceuil/acceuil.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { ProjetsComponent } from './components/projets/projets.component';
 import { OffresStageComponent } from './components/offres-stage/offres-stage.component';
 import { LoginComponent } from './login/login.component';
@@ -39,15 +36,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component'
 import {ForumComponent} from "./components/forum/forum.component";
 import {DetailsPostesComponent} from "./components/forum/details/details-postes.component";
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EtudiantComponent,
     AcceuilComponent,
-    NavbarComponent,
     ProjetsComponent,
     OffresStageComponent,
+    NavbarComponent,
     LoginComponent,
     DetailsOffreStageComponent,
     NewProjetComponent,

@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class EtudiantComponent {
 constructor(private router:Router) {
 }
-  Edit() {
-    this.router.navigateByUrl("/navbar/edit-etudiant/"+1);
-  }
+goToDashboard() {
+  this.router.navigate(['/dashboard']);
+}
 }

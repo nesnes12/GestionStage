@@ -5,7 +5,6 @@ import { EtudiantComponent } from "./components/etudiant/etudiant.component";
 import { OffresStageComponent } from "./components/offres-stage/offres-stage.component";
 import { ProjetsComponent } from "./components/projets/projets.component";
 import { LoginComponent } from "./login/login.component";
-import { NavbarComponent } from "./navbar/navbar.component";
 import { DetailsOffreStageComponent } from "./components/offres-stage/details/details-offre-stage.component";
 import { EditProjetComponent } from "./components/projets/edit/edit-projet.component";
 import { NewProjetComponent } from "./components/projets/add/new-projet.component";
@@ -28,6 +27,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 import { ProfileComponent } from './components/profile/profile.component'
 import {ForumComponent} from "./components/forum/forum.component";
 import {DetailsPostesComponent} from "./components/forum/details/details-postes.component";
+import { NavbarComponent } from './navbar/navbar.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -51,6 +51,7 @@ const routes: Routes = [
   { path: "offre-de-stage", component: OffreDeStageComponent },
   { path: "validate-offre", component: ValidateOffreComponent},
   { path: "chart", component: ChartComponent},
+  {path: "navbar", component:NavbarComponent},
   { path: "update-session/:id", component: UpdateSessionComponent },
   { path: "add-session", component: AddSessionComponent },
   { path: "createstage", component: CreatestageComponent },

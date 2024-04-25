@@ -26,4 +26,9 @@ export class NavbarComponent  implements OnInit {
     this.roles = null;
     this.router.navigateByUrl("/login");
   }
+  
+ 
+  handleProfile() {
+    this.router.navigateByUrl("/profile");
+  }
 }
