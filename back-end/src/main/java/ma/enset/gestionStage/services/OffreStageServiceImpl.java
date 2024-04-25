@@ -3,7 +3,7 @@ package ma.enset.gestionStage.services;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+import org.slf4j.Logger;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ma.enset.gestionStage.dtos.OffreStageDTO;
@@ -14,16 +14,17 @@ import ma.enset.gestionStage.repositories.OffreStageRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
+import org.slf4j.LoggerFactory;
 @Service
 @AllArgsConstructor
-@Slf4j
+
 public class OffreStageServiceImpl implements OffreStageService {
     private OffreStageRepository offreStageRepository;
     private OffreStageMapper mapper;
+    private static final Logger log = LoggerFactory.getLogger(OffreStageServiceImpl.class);
 
     public List<OffreStageDTO> findAllOffreStage() {
-        List<OffreStage> offreStages =  offreStageRepository.findAll();
+        List<OffreStage> offreStages = offreStageRepository.findAll();
         List<OffreStageDTO> offreStageDTOS = offreStages
                 .stream()
                 .map(offreStage -> mapper.fromOffreStage(offreStage))
@@ -36,7 +37,7 @@ public class OffreStageServiceImpl implements OffreStageService {
     }
 
     public OffreStageDTO saveOffreStage(OffreStageDTO offreStageDTO) {
-        OffreStage offreStage=mapper.fromOffreStageDTO(offreStageDTO);
+        OffreStage offreStage = mapper.fromOffreStageDTO(offreStageDTO);
         OffreStage save = offreStageRepository.save(offreStage);
         return mapper.fromOffreStage(save);
     }
@@ -66,25 +67,30 @@ public class OffreStageServiceImpl implements OffreStageService {
     }
 
     public List<OffreStageDTO> ChercherOffreStageByPoste(String poste) {
-        List<OffreStage> offreStages =  offreStageRepository.searchOffreStageByPoste(poste);
+        List<OffreStage> offreStages = offreStageRepository.searchOffreStageByPoste(poste);
         List<OffreStageDTO> offreStageDTOS = offreStages
                 .stream()
                 .map(offreStage -> mapper.fromOffreStage(offreStage))
-                .collect(Collectors.toList()); //String to list
+                .collect(Collectors.toList());
+        //log.info("Offre stages: {}", offreStageDTOS.toString());
+
+
+        //String to list
         return offreStageDTOS;
     }
 
     public List<OffreStageDTO> ChercherOffreStageByEntreprise(String entreprise) {
-        List<OffreStage> offreStages =  offreStageRepository.searchOffreStageByEntreprise(entreprise);
+        List<OffreStage> offreStages = offreStageRepository.searchOffreStageByEntreprise(entreprise);
         List<OffreStageDTO> offreStageDTOS = offreStages
                 .stream()
                 .map(offreStage -> mapper.fromOffreStage(offreStage))
                 .collect(Collectors.toList()); //String to list
+
         return offreStageDTOS;
     }
 
     public List<OffreStageDTO> ChercherOffreStageByTechnologie(String technologie) {
-        List<OffreStage> offreStages =  offreStageRepository.searchOffreStageByTechnologie(technologie);
+        List<OffreStage> offreStages = offreStageRepository.searchOffreStageByTechnologie(technologie);
         List<OffreStageDTO> offreStageDTOS = offreStages
                 .stream()
                 .map(offreStage -> mapper.fromOffreStage(offreStage))
@@ -112,5 +118,6 @@ public class OffreStageServiceImpl implements OffreStageService {
         offreStageHistoryDTO.setCurrentPage(page);
         return offreStageHistoryDTO;
     }
+
 
 }
