@@ -16,7 +16,7 @@ import Swal from "sweetalert2";
   styleUrls: ['./offres-stage.component.css']
 })
 export class OffresStageComponent implements OnInit {
-  offresStageObservable!: Observable<Array<OffreStage>>;
+  offresStageObservable!: Observable<Array<OffreDeStage>>;
   offreStageObservable! : Observable<OffreStageDetails>
   errorMsg!: String;
   currentPage : number =0;
@@ -66,7 +66,7 @@ export class OffresStageComponent implements OnInit {
  
 console.log(this.offresStageObservable )
 this.offresStageObservable.subscribe(
-  (data: OffreStage[]) => {
+  (data: OffreDeStage[]) => {
     console.log('Response from backend:', data);
     this.offresDeStage = data as unknown as OffreDeStage[];
   },

@@ -83,8 +83,8 @@ export class OffreDeStageService {
 }
 
 
-  OffresStage(): Observable<Array<OffreStage>> {
-    return this.http.get<Array<OffreStage>>(this.backendHost + "/offres-stage/all")
+  OffresStage(): Observable<Array<OffreDeStage>> {
+    return this.http.get<Array<OffreDeStage>>(this.backendHost + "/offres-stage/all")
   }
 
   public setPostuler(offreStage: OffreStage): Observable<boolean> {
