@@ -11,7 +11,7 @@
           </li>
           <li *ngIf="roles!=null && roles.includes('ETUDIANT')">
               <a routerLink="/offres-stage" class="nav-link py-3 px-3 bg-light" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard" >
-                <i class="bi bi-box-arrow-in-right fs-3"></i>
+                <i class=" bi bi-briefcase fs-3"></i>
               </a>
           </li>
           <li *ngIf="roles!=null && roles.includes('ENCADRANT')">
@@ -54,11 +54,7 @@
             <i class="bi-arrow-left-right fs-3"></i>
           </a>
         </li>
-        <li *ngIf="roles!=null && roles.includes('ETUDIANT')">
-          <a routerLink="/docs" class="nav-link py-3 px-3 bg-light" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
-            <i class="bi-file-text-fill fs-3"></i>
-          </a>
-        </li>
+    
         <li *ngIf="roles!=null && roles.includes('ETUDIANT')">
           <a routerLink="/stage" class="nav-link py-3 px-3 bg-light" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
             <i class="bi-plus-square-fill fs-3"></i>

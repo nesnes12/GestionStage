@@ -48,8 +48,8 @@ export class LoginComponent implements OnInit {
       //Token needed to know the role 
       .subscribe(success => {
         if (success) {
-               if (localStorage.getItem("ROLES")!.includes("ETUDIANTS")) {
-                 this.router.navigate(['/etudiant']);
+               if (localStorage.getItem("ROLES")!.includes("ETUDIANT")) {
+                 this.router.navigate(['/stage']);
                  
                } else {
                  this.router.navigate(["/dashboard"]);
