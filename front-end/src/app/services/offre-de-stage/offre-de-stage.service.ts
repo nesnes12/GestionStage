@@ -14,7 +14,10 @@ export class OffreDeStageService {
   constructor(private http: HttpClient) { }
 
   getAllOffreDeStages(): Observable<OffreDeStage[]> {
-    return this.http.get<OffreDeStage[]>(`${this.apiUrl}/all`);
+    const test =this.http.get<OffreDeStage[]>(`${this.apiUrl}/all`);
+    
+    return  test
+    
   }
 
   getOffreDeStageById(id: number): Observable<OffreDeStage> {
@@ -50,7 +53,7 @@ export class OffreDeStageService {
     return this.http.get<OffreDeStage>(`${this.apiUrl}/validate/${id}`);
   }
 
-  getOffreDeStagesByEntreprise(entreprise: string): Observable<OffreDeStage[]> {
+  getOffreDeStagesByEntreprise(entreprise: string): Observable<Array<OffreDeStage>> {
     return this.http.get<OffreDeStage[]>(`${this.apiUrl}/entreprise/${entreprise}`);
   }
 
@@ -69,9 +72,16 @@ export class OffreDeStageService {
     return value.toString().padStart(2, '0');
   }
 
-  searchOffresStageByPoste(kw: String): Observable<Array<OffreStage>> {
-    return this.http.get<Array<OffreStage>>(this.backendHost + "/offres-stage/poste/search?poste=" + kw)
-  }
+  searchOffresStageByPoste(kw: string): Observable<Array<OffreStage>> {
+    const encodedKw = encodeURIComponent(kw); // Encode the query parameter
+    const url = `${this.backendHost}/offres-stage/poste/search?poste=${encodedKw}`;
+    console.log(url);
+
+    const test= this.http.get<OffreStage[]>(url);
+    console.log(test);
+    return test
+}
+
 
   OffresStage(): Observable<Array<OffreStage>> {
     return this.http.get<Array<OffreStage>>(this.backendHost + "/offres-stage/all")

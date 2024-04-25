@@ -78,10 +78,9 @@ public class AccountRestController {
             throw new RuntimeException("Refresh token Required :(");
         }
     }
-    @GetMapping(path = "/profile/{username}")
-    public AppUser profile(@PathVariable String username){
-        System.out.println(username);
-        return  accountService.loadUserByUsername(username);
+    @GetMapping(path = "/profile")
+    public AppUser profile(Principal principal){
+        return  accountService.loadUserByUsername(principal.getName());
     }
 }
 @Data

@@ -2,6 +2,7 @@ package ma.enset.gestionStage.web;
 
 import ma.enset.gestionStage.dtos.OffreDeStageDTO;
 import ma.enset.gestionStage.dtos.OffreDeStageDetailsDTO;
+import ma.enset.gestionStage.dtos.OffreStageDTO;
 import ma.enset.gestionStage.services.OffreDeStageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -74,11 +75,13 @@ public class OffreDeStageController {
     @GetMapping("/validate/{id}")
     public ResponseEntity<OffreDeStageDTO> validateOffreDeStage(@PathVariable Long id) {
         OffreDeStageDTO validatedOffreDeStage = offreDeStageService.validateOffreDeStage(id);
+
         return ResponseEntity.ok(validatedOffreDeStage);
     }
 
     @GetMapping("/entreprise/{entreprise}")
     public ResponseEntity<List<OffreDeStageDTO>> getOffreStagesByEntreprise(@PathVariable String entreprise) {
+
         List<OffreDeStageDTO> offreDeStages = offreDeStageService.getOffreDeStagesByEntreprise(entreprise);
         return ResponseEntity.ok(offreDeStages);
     }
@@ -87,5 +90,7 @@ public class OffreDeStageController {
     public List<OffreDeStageDTO> getNonValideOffreDeStages() {
         return offreDeStageService.getNonValidatedOffers();
     }
+
+
 
 }

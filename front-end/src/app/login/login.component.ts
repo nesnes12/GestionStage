@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(
       {
-        username: this.f['username'].value,
+        username: this.f['username'   ].value,
         password: this.f['password'].value
       }
     )
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       //       this.router.navigate(["/navbar/acceuil"]);
       //       setTimeout(function () {
       //         document.location.reload();
-      //       }, 1000);
+      //       }, 1000);    
       //     }
       //   }
       // });
@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
       //Token needed to know the role 
       .subscribe(success => {
         if (success) {
+          this.router.navigate(['/dashboard']);
                if (localStorage.getItem("ROLES")!.includes("ETUDIANTS")) {
                  this.router.navigate(['/etudiant']);
                  
