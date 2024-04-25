@@ -67,4 +67,6 @@ export class AddOffreDeStageComponent implements OnInit {
     this.roles = null;
     this.router.navigateByUrl("/login");
   }
+
+  //the new added by siki
 }
