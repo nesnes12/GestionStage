@@ -140,12 +140,12 @@
         <div class="input-group">
           <div class="ms-2"></div>
 
-          <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchOffresStageByPoste()">
+          <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchOffresStageByEntreprise()">
             <div class="input-group">
-              <label class="input-group-text">Poste</label>
+              <label class="input-group-text">Entreprise</label>
               <input type="text" formControlName="keyword" class="form-control">
               <!-- Stocker dans le variable keyword de l'objet searchFormGroup -->
-              <button class="btn btn-outline-info">
+              <button class="btn btn-outline-primary">
                 <i class="bi bi-search"></i>
               </button>
             </div>
@@ -154,40 +154,22 @@
           <div class="m-2 ms-5"></div>
           <div class="ms-5"></div>
 
-          <form [formGroup]="searchFormGroup">
-            <div class="input-group">
-              <label class="input-group-text">Entreprise</label>
-              <input type="text" class="form-control">
-              <!-- Stocker dans le variable keyword de l'objet searchFormGroup -->
-              <button class="btn btn-outline-info">
-                <i class="bi bi-search"></i>
-              </button>
-            </div>
-          </form>
+          
         </div>
 
         <div class="m-2"></div>
 
         <div class="input-group">
-          <form [formGroup]="searchFormGroup">
-            <div class="input-group">
-              <label class="input-group-text">technologie</label>
-              <input type="text" class="form-control">
-              <!-- Stocker dans le variable keyword de l'objet searchFormGroup -->
-              <button class="btn btn-outline-info">
-                <i class="bi bi-search"></i>
-              </button>
-            </div>
-          </form>
+         
 
           <div class="ms-5"></div>
           <div class="ms-5"></div>
           <div class="ms-5"></div>
           <div class="ms-5"></div>
 
-          <button (click)="Reset()" class="btn btn-outline-warning">
+          <button (click)="Reset()" class="btn btn-outline-primary ">
             Réinitialiser
-          </button>
+        </button>
         </div>
         <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
           <div>
@@ -198,77 +180,50 @@
       </div>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
             integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-      <div class="container mt-3 mb-4" overflow-auto>
-        <div class="col-lg-14 mt-4 mt-lg-0">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm rounded-7">
-
-                <!-- List -->
-                <table class="table manage-students-top mb-0">
-                  <thead>
-                  <tr>
-                    <th class="text-center"><b>#</b></th>
-                    <th class="text-center"><b>Date de début</b></th>
-                    <th class="text-center"><b>Date de fin</b></th>
-                    <th class="text-center"><b>Poste</b></th>
-                    <th class="text-center"><b>Technologie</b></th>
-                    <th class="text-center"><b>Entreprise</b></th>
-                    <th class="action text-right"><b>Action</b></th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr class="students-list" *ngFor="let offreDeStage of offresDeStage; let i = index">
-                    <td class="text-center">
-                      {{i+1}}
-                    </td>
-                    <td class="text-center">{{ offreDeStage.dateDebut | date }}</td>
-                    <td class="text-center">{{ offreDeStage.dateFin | date }}</td>
-                    <td class="text-center">{{ offreDeStage.poste }}</td>
-                    <td class="text-center">{{ offreDeStage.technologie }}</td>
-                    <td class="text-center">{{ offreDeStage.entreprise }}</td>
-                    <td class="text-center">
-                      <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                        <li><span id="boot-icon" class="bi bi-trash-fill"
-                                  style="font-size: 1.2rem; color: rgb(255, 0, 0);" (click)="handleDeleteButton(offreDeStage)"></span></li>
-                        &nbsp;<li><span id="boot-icon" class="bi bi-pencil-fill"
-                                        style="font-size: 1.2rem; color: rgb(73, 219, 32);" (click)="goToUpdate(offreDeStage)"></span></li>
-                        &nbsp;<li><span id="boot-icon" class="bi bi-eye-fill"
-                                        style="font-size: 1.2rem; color:cornflowerblue;" (click)="goToDetails(offreDeStage)"></span></li>
-                      </ul>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-                <div class="row g-0 align-items-center pb-4 my-3">
-                  <div class="col-sm-6">
-                    <div>
-                      <p class="mb-sm-0">Affichage de 1 a 10</p>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="float-sm-end">
-                      <ul class="pagination mb-sm-0">
-                        <li class="page-item disabled">
-                          <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item">
-                          <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                        </li>
-                      </ul>
+            <div class="container mt-3 mb-4" overflow-auto>
+              <div class="col-lg-14 mt-4 mt-lg-0">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm rounded-7">
+                      <!-- List -->
+                      <table class="table manage-students-top mb-0">
+                        <thead>
+                          <tr>
+                            <th class="text-center"><b>#</b></th>
+                            <th class="text-center"><b>Date de début</b></th>
+                            <th class="text-center"><b>Date de fin</b></th>
+                            <th class="text-center"><b>Poste</b></th>
+                            <th class="text-center"><b>Technologie</b></th>
+                            <th class="text-center"><b>Entreprise</b></th>
+                            <th class="action text-right"><b>Action</b></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Iterate over all data -->
+                          <tr class="students-list" *ngFor="let offreDeStage of offresDeStage; let i = index">
+                            <td class="text-center">{{ i + 1 }}</td>
+                            <td class="text-center">{{ offreDeStage.dateDebut | date }}</td>
+                            <td class="text-center">{{ offreDeStage.dateFin | date }}</td>
+                            <td class="text-center">{{ offreDeStage.poste }}</td>
+                            <td class="text-center">{{ offreDeStage.technologie }}</td>
+                            <td class="text-center">{{ offreDeStage.entreprise }}</td>
+                            <td class="text-center">
+                              <!-- Actions -->
+                              <ul class="list-unstyled mb-0 d-flex justify-content-end">
+                                <li><span class="bi-check-circle-fill" style="font-size: 1.2rem; color: rgb(0, 251, 21);" (click)="(offreDeStage)"></span></li>
+                               
+                            
+                                &nbsp;
+                                <li><span class="bi bi-eye-fill" style="font-size: 1.2rem; color:cornflowerblue;" (click)="goToDetails(offreDeStage)"></span></li>
+                              </ul>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

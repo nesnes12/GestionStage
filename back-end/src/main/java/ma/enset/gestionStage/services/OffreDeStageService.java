@@ -2,6 +2,7 @@ package ma.enset.gestionStage.services;
 
 import ma.enset.gestionStage.dtos.OffreDeStageDTO;
 import ma.enset.gestionStage.dtos.OffreDeStageDetailsDTO;
+import ma.enset.gestionStage.dtos.OffreStageDTO;
 import ma.enset.gestionStage.entities.OffreDeStage;
 
 import java.util.Date;
@@ -21,4 +22,6 @@ public interface OffreDeStageService {
     OffreDeStage saveOffreDeStage(OffreDeStage offreDeStage);
     void saveOffreDeStage(OffreDeStageDTO offreDeStageDTO);
     List<OffreDeStageDTO> getNonValidatedOffers();
+
+
 }

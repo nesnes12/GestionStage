@@ -53,14 +53,30 @@ export class OffresStageComponent implements OnInit {
 
   }
 
-  handleSearchOffresStageByPoste() {
-    let kw = this.searchFormGroup.value.keyword; // add ?
-    this.offresStageObservable = this.offresStageService.searchOffresStageByPoste(kw).pipe(
+  handleSearchOffresStageByEntreprise() {
+    let kw = this.searchFormGroup.value.keyword;
+    let test=[];
+    this.offresStageObservable = this.offresStageService.getOffreDeStagesByEntreprise(kw).pipe(
       catchError(err => {
         this.errorMsg = err.message;
-        return throwError(err)
+        return throwError(err);
       })
     );
+
+ 
+console.log(this.offresStageObservable )
+this.offresStageObservable.subscribe(
+  (data: OffreStage[]) => {
+    console.log('Response from backend:', data);
+    this.offresDeStage = data as unknown as OffreDeStage[];
+  },
+  error => {
+    console.error('Error fetching data:', error);
+    // Handle error here if needed
+  }
+);
+
+
   }
 
 
@@ -98,7 +114,7 @@ export class OffresStageComponent implements OnInit {
   }
    */
 
-  getOffresDeStage(): void {
+  /*edhi hiya */getOffresDeStage(): void {
     this.offresStageService.getAllOffreDeStages().subscribe(
       offresDeStage => {
         this.offresDeStage = offresDeStage;
@@ -109,17 +125,17 @@ export class OffresStageComponent implements OnInit {
     );
   }
 
-  handleDeleteButton(offreDeStage: OffreDeStage) {
+  handleAcceptButton(offreDeStage: OffreDeStage) {
     Swal.fire({
-      title: 'Are you sure you want to delete this Offre de Stage?',
+      title: 'Are you sure you want to Accept this Offre de Stage?',
       showCancelButton: true,
       confirmButtonText: 'Yes',
       denyButtonText: 'No',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.offresStageService.deleteOffreDeStage(offreDeStage.id).subscribe({
+        this.offresStageService.validateOffreDeStage(offreDeStage.id).subscribe({
           next: (resp) => {
-            Swal.fire('Deleted successfully!', '');
+            Swal.fire('Valited successfully!', '');
           },
           error: (err) => {
             console.log(err);
@@ -148,8 +164,9 @@ export class OffresStageComponent implements OnInit {
     this.router.navigateByUrl("/login");
   }
 
-  Reset() {
-    this.OffresStage();
+ /* //////////////////////////////////////edhi thenya*/Reset() {
+ console.log(this.offresDeStage)
+ this.getOffresDeStage()
     this.searchFormGroup = this.formBuilder.group({
       keyword: this.formBuilder.control(""),
       keywords: this.formBuilder.control(""),

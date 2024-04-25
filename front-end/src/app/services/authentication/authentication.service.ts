@@ -3,17 +3,15 @@ import {AppUser} from "../../model/user.model";
 // @ts-ignore
 import * as uuid from "uuid";
 import {Observable, of, throwError} from "rxjs";
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private backendHost = "http://localhost:8085";
   users: AppUser[] = [];
   authenticatedUser: AppUser | undefined;
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.users.push({userId: uuid.v4(), username: "radouan", password: "radouan"})
     this.users.push({userId: uuid.v4(), username: "ihssan", password: "ihssan"})
     this.users.push({userId: uuid.v4(), username: "ayoub", password: "ayoub"})

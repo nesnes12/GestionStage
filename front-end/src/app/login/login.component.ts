@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(
       {
-        username: this.f['username'].value,
+        username: this.f['username'   ].value,
         password: this.f['password'].value
       }
     )
@@ -80,14 +80,14 @@ export class LoginComponent implements OnInit {
       //       this.router.navigate(["/navbar/acceuil"]);
       //       setTimeout(function () {
       //         document.location.reload();
-      //       }, 1000);
+      //       }, 1000);    
       //     }
       //   }
       // });
       .subscribe(success => {
         if (success) {
           this.router.navigate(['/dashboard']);
-          // document.location.reload();
+        
         }
       });
   }

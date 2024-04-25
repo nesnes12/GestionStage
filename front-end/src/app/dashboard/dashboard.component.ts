@@ -29,6 +29,6 @@ export class DashboardComponent implements OnInit {
   }
 
   handleProfile() {
-    this.router.navigateByUrl("/profile");
+    this.router.navigateByUrl("/dashboard");
   }
 }

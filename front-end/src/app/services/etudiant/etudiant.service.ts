@@ -1,8 +1,7 @@
-
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
-import { Etudiant } from "../../model/Etudiant.model";
+import {Projet} from "../../model/Projet.model";
+import {HttpClient} from "@angular/common/http";
+import {Etudiant} from "../../model/Etudiant.model";
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +9,16 @@ import { Etudiant } from "../../model/Etudiant.model";
 export class EtudiantService {
   private backendHost = "http://localhost:8085";
 
-  constructor(private http: HttpClient) {}
-
-  // Retrieve a single student by ID
-  getEtudiant(id: number): Observable<Etudiant> {
-    return this.http.get<Etudiant>(`${this.backendHost}/etudiant/${id}`);
+  constructor(private http: HttpClient) {
   }
 
-  // Update a student
-  updateEtudiant(etudiant: Etudiant): Observable<any> {
-    return this.http.put(`${this.backendHost}/edit/{id}${etudiant.id}`, etudiant);
+
+  getEtudiant(id: number) {
+    return this.http.get<Etudiant>(this.backendHost + "/etudiants/" + id)
   }
 
-  // Delete a student by ID
-  deleteEtudiant(id: number): Observable<any> {
-    return this.http.delete(`${this.backendHost}/delete/${id}`);
+  updateEtudiant(etudiant: Etudiant) {
+    return this.http.put(this.backendHost + "/etudiants/edit/"+etudiant.id,etudiant);
+
   }
- 
 }

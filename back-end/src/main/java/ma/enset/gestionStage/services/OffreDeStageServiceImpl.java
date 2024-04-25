@@ -6,6 +6,8 @@ import ma.enset.gestionStage.entities.OffreDeStage;
 import ma.enset.gestionStage.mappers.OffreDeStageDetailsMapper;
 import ma.enset.gestionStage.mappers.OffreDeStageMapper;
 import ma.enset.gestionStage.repositories.OffreDeStageRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -18,7 +20,7 @@ public class OffreDeStageServiceImpl implements OffreDeStageService {
     private final OffreDeStageRepository offreDeStageRepository;
     private final OffreDeStageMapper offreDeStageMapper;
     private final OffreDeStageDetailsMapper offreDeStageDetailsMapper;
-
+    private static final Logger log = LoggerFactory.getLogger(OffreDeStageServiceImpl.class);
     public OffreDeStageServiceImpl(OffreDeStageRepository offreDeStageRepository,
                                  OffreDeStageMapper offreDeStageMapper,
                                  OffreDeStageDetailsMapper offreDeStageDetailsMapper) {
@@ -99,8 +101,12 @@ public class OffreDeStageServiceImpl implements OffreDeStageService {
 
     @Override
     public List<OffreDeStageDTO> getOffreDeStagesByEntreprise(String entreprise) {
-        List<OffreDeStage> offreDeStages = offreDeStageRepository.findByEntrepriseIgnoreCase(entreprise);
-        return offreDeStageMapper.offreDeStageListToDTOList(offreDeStages);
+        List<OffreDeStage> offreDeStages = offreDeStageRepository.searchOffreDeStageByEntreprise(entreprise);
+        log.info("Offre stages: {}", offreDeStages.toString()  );
+        return offreDeStages.stream()
+                .map(offreDeStageMapper::offreDeStageToDTO)
+                .collect(Collectors.toList());
+
     }
 
     @Override
@@ -119,4 +125,5 @@ public class OffreDeStageServiceImpl implements OffreDeStageService {
         List<OffreDeStage> nonValidatedOffers = offreDeStageRepository.findByValidatedFalse();
         return offreDeStageMapper.offreDeStageListToDTOList(nonValidatedOffers);
     }
+
 }
