@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import {Router} from "@angular/router";
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -26,6 +25,11 @@ export class DashboardComponent implements OnInit {
     this.auth.logout();
     this.roles = null;
     this.router.navigateByUrl("/login");
+  }
+  isClicked: boolean = false;
+
+  handleClick() {
+    this.isClicked = !this.isClicked;
   }
 
   handleProfile() {

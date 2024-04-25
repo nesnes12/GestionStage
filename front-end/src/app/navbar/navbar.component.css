@@ -1,0 +1,19 @@
+/* CSS for navbar hover effect */
+.nav-link:hover {
+
+  transition: background-color 0.3s ease;
+}
+
+
+/* CSS for navbar item styles */
+.nav-link {
+  color: #3700ff; /* Default text color */
+}
+
+.nav-link:hover:visited {
+  color: #3700ff; /* Text color on hover */
+}
+
+.nav-link .bi {
+  margin-right: 5px; /* Add some spacing between icon and text */
+}

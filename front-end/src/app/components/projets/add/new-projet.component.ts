@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ProjetsService} from "../../../services/projets/projets.service";
 import {Projet} from "../../../model/Projet.model";
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-new-customer',
@@ -10,9 +11,15 @@ import {Projet} from "../../../model/Projet.model";
   styleUrls: ['./new-projet.component.css']
 })
 export class NewProjetComponent implements OnInit {
+handleLogout() {
+  this.auth.logout();
+  this.roles = null;
+  this.router.navigateByUrl("/login");
+}
   newProjetFormGroup!: FormGroup
+roles: any;
 
-  constructor(private fb: FormBuilder, public projetsService: ProjetsService, private router:Router) {
+  constructor(private fb: FormBuilder, public projetsService: ProjetsService,private auth: AuthService, private router:Router) {
   }
   ngOnInit(): void {
     this.newProjetFormGroup = this.fb.group({
