@@ -14,7 +14,7 @@ export class OffreDeStageService {
   constructor(private http: HttpClient) { }
 
   getAllOffreDeStages(): Observable<OffreDeStage[]> {
-    const test =this.http.get<OffreDeStage[]>(`${this.apiUrl}/all`);
+    const test =this.http.get<OffreDeStage[]>(`${this.apiUrl}/non-valide`);
     
     return  test
     
@@ -58,7 +58,7 @@ export class OffreDeStageService {
   }
 
   getNonValideOffresDeStage(): Observable<OffreDeStage[]> {
-    return this.http.get<OffreDeStage[]>(`${this.apiUrl}/non-valide`);
+    return this.http.get<OffreDeStage[]>(`${this.apiUrl}/all`);
   }
 
   private formatDate(date: Date): string {
